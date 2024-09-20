@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="todo-container">
+        <h1>To-Do List</h1>
+        <br>
+        <!-- Dark Mode Toggle Button -->
+        <button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()">Change Display Mode</button>
+        <br>
+        <br>
+        <div class="input-container">
+            <input type="text" id="taskInput" placeholder="Add a new task..." />
+
+            <!-- Task Priority -->
+            <select id="prioritySelect">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <!-- Due Date Input -->
+            <input type="datetime-local" id="dueDateInput">
+
+            <!-- Task Category -->
+            <select id="categorySelect">
+                <option value="work">Work</option>
+                <option value="personal">Personal</option>
+                <option value="shopping">Shopping</option>
+            </select>
+
+            <!-- Add Task Button -->
+            <button onclick="addTask()" class="add-task-btn">Add Task</button>
+        </div>
+
+        <!-- Task Filtering by Category -->
+        <select id="filterCategorySelect" onchange="filterTasks()">
+            <option value="all">All</option>
+            <option value="work">Work</option>
+            <option value="personal">Personal</option>
+            <option value="shopping">Shopping</option>
+        </select>
+
+        <!-- Task List -->
+        <ul id="taskList"></ul>
+
+        <!-- Progress Tracking -->
+        <div class="progress-container">
+            <progress id="progressBar" max="100" value="0"></progress>
+            <span id="progressPercent">0%</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
